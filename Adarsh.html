@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adarshraj Shah | IT Professional</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            scroll-behavior: smooth;
+        }
+
+        /* Navigation */
+        nav {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        nav .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        nav h1 {
+            font-size: 1.5rem;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            transition: opacity 0.3s;
+        }
+
+        nav a:hover {
+            opacity: 0.8;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 120px 2rem 80px;
+            text-align: center;
+            margin-top: 60px;
+        }
+
+        .hero h2 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            animation: fadeInUp 1s;
+        }
+
+        .hero .subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            opacity: 0.9;
+        }
+
+        .hero .location {
+            font-size: 1.1rem;
+            opacity: 0.8;
+            margin-bottom: 2rem;
+        }
+
+        .hero .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 12px 30px;
+            border: 2px solid white;
+            background: transparent;
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            transition: all 0.3s;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .btn:hover {
+            background: white;
+            color: #667eea;
+        }
+
+        .btn-primary {
+            background: white;
+            color: #667eea;
+        }
+
+        .btn-primary:hover {
+            background: transparent;
+            color: white;
+        }
+
+        /* Sections */
+        section {
+            padding: 80px 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        section h3 {
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            text-align: center;
+            color: #667eea;
+            position: relative;
+        }
+
+        section h3::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: #667eea;
+            margin: 1rem auto 0;
+            border-radius: 2px;
+        }
+
+        /* About Section */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .about-text p {
+            margin-bottom: 1rem;
+        }
+
+        /* Skills Section */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .skill-category {
+            background: #f8f9fa;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .skill-category:hover {
+            transform: translateY(-5px);
+        }
+
+        .skill-category h4 {
+            color: #667eea;
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .skill-category ul {
+            list-style: none;
+        }
+
+        .skill-category li {
+            padding: 0.5rem 0;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+
+        .skill-category li::before {
+            content: '▹';
+            position: absolute;
+            left: 0;
+            color: #667eea;
+            font-size: 1.2rem;
+        }
+
+        /* Education Section */
+        .education-timeline {
+            position: relative;
+            padding-left: 2rem;
+        }
+
+        .education-item {
+            background: #f8f9fa;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border-radius: 10px;
+            border-left: 4px solid #667eea;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .education-item h4 {
+            color: #667eea;
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .education-item .institution {
+            font-size: 1.1rem;
+            color: #555;
+            margin-bottom: 0.5rem;
+        }
+
+        .education-item .details {
+            display: flex;
+            gap: 2rem;
+            margin-top: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .education-item .details span {
+            background: #667eea;
+            color: white;
+            padding: 0.3rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
+
+        /* Soft Skills Section */
+        .soft-skills {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .soft-skill-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            transition: transform 0.3s;
+        }
+
+        .soft-skill-card:hover {
+            transform: scale(1.05);
+        }
+
+        .soft-skill-card .icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .soft-skill-card h4 {
+            font-size: 1.2rem;
+        }
+
+        /* Contact Section */
+        #contact {
+            background: #f8f9fa;
+        }
+
+        .contact-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .contact-item {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .contact-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .contact-item .icon {
+            font-size: 2.5rem;
+            color: #667eea;
+            margin-bottom: 1rem;
+        }
+
+        .contact-item h4 {
+            color: #667eea;
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-item a {
+            color: #333;
+            text-decoration: none;
+            word-break: break-all;
+        }
+
+        .contact-item a:hover {
+            color: #667eea;
+        }
+
+        /* Footer */
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav ul {
+                gap: 1rem;
+                font-size: 0.9rem;
+            }
+
+            .hero h2 {
+                font-size: 2rem;
+            }
+
+            .hero .subtitle {
+                font-size: 1.2rem;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            section {
+                padding: 60px 1rem;
+            }
+
+            nav .container {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+
+        /* Mobile Menu Toggle */
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+            }
+
+            nav ul {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                text-align: center;
+                gap: 0.5rem;
+            }
+
+            nav ul.active {
+                display: flex;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <h1>Adarshraj Shah</h1>
+            <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+            <ul id="nav-menu">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <h2>Adarshraj Shah</h2>
+        <p class="subtitle">IT Professional | Developer</p>
+        <p class="location">📍 Mumbai, Maharashtra</p>
+        <div class="cta-buttons">
+            <a href="#contact" class="btn btn-primary">Get In Touch</a>
+            <a href="#about" class="btn">Learn More</a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <h3>About Me</h3>
+        <div class="about-content">
+            <div class="about-text">
+                <p>Hello! I'm Adarshraj Shah, an aspiring IT professional currently pursuing B.Sc. IT at DTSS College, Mumbai University.</p>
+                <p>I am passionate about starting my career in IT where I can leverage my technical skills to help people and continuously learn new technologies. My approach combines strong problem-solving abilities with a collaborative mindset, making me ready to contribute effectively to any team.</p>
+                <p>I'm committed to working hard, learning from experienced professionals, and growing alongside the organization I join.</p>
+            </div>
+            <div class="about-stats">
+                <div class="skill-category">
+                    <h4>🎓 Current Status</h4>
+                    <ul>
+                        <li>B.Sc. IT Student</li>
+                        <li>CGPA: 6.5/10</li>
+                        <li>Expected Graduation: 2026</li>
+                        <li>Based in Mumbai</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills">
+        <h3>Technical Skills</h3>
+        <div class="skills-grid">
+            <div class="skill-category">
+                <h4>💻 Programming Languages</h4>
+                <ul>
+                    <li>Python</li>
+                    <li>Java</li>
+                    <li>HTML & CSS</li>
+                    <li>ASP.NET</li>
+                </ul>
+            </div>
+            <div class="skill-category">
+                <h4>🖥️ Operating Systems</h4>
+                <ul>
+                    <li>Windows 10/11</li>
+                    <li>Windows Server Basics</li>
+                </ul>
+            </div>
+            <div class="skill-category">
+                <h4>🛠️ Tools & Software</h4>
+                <ul>
+                    <li>Remote Desktop</li>
+                    <li>TeamViewer</li>
+                    <li>AnyDesk</li>
+                </ul>
+            </div>
+            <div class="skill-category">
+                <h4>🌐 Networking</h4>
+                <ul>
+                    <li>TCP/IP Basics</li>
+                    <li>LAN/WAN</li>
+                    <li>DNS Configuration</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education">
+        <h3>Education</h3>
+        <div class="education-timeline">
+            <div class="education-item">
+                <h4>Bachelor of Science in Information Technology</h4>
+                <p class="institution">DTSS College, Mumbai University</p>
+                <div class="details">
+                    <span>Expected: 2026</span>
+                    <span>CGPA: 6.5/10</span>
+                </div>
+            </div>
+            <div class="education-item">
+                <h4>Higher Secondary Certificate (HSC)</h4>
+                <p class="institution">Durgadevi Saraf Junior College, MHSE Board</p>
+                <div class="details">
+                    <span>Year: 2023</span>
+                    <span>Percentage: 54.17%</span>
+                </div>
+            </div>
+            <div class="education-item">
+                <h4>Secondary School Certificate (SSC)</h4>
+                <p class="institution">Gyanodaya Vidya Mandir High School, MHSE Board</p>
+                <div class="details">
+                    <span>Year: 2021</span>
+                    <span>Percentage: 61.80%</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Soft Skills Section -->
+    <section id="soft-skills">
+        <h3>Strengths & Soft Skills</h3>
+        <div class="soft-skills">
+            <div class="soft-skill-card">
+                <div class="icon">💬</div>
+                <h4>Strong Communication</h4>
+            </div>
+            <div class="soft-skill-card">
+                <div class="icon">🧩</div>
+                <h4>Problem-Solving</h4>
+            </div>
+            <div class="soft-skill-card">
+                <div class="icon">⚡</div>
+                <h4>Quick Learner</h4>
+            </div>
+            <div class="soft-skill-card">
+                <div class="icon">🤝</div>
+                <h4>Team Player</h4>
+            </div>
+            <div class="soft-skill-card">
+                <div class="icon">💪</div>
+                <h4>Works Under Pressure</h4>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <h3>Get In Touch</h3>
+        <div class="contact-content">
+            <div class="contact-item">
+                <div class="icon">📧</div>
+                <h4>Email</h4>
+                <a href="mailto:adarshrajshah12@gmail.com">adarshrajshah12@gmail.com</a>
+            </div>
+            <div class="contact-item">
+                <div class="icon">📱</div>
+                <h4>Phone</h4>
+                <a href="tel:+919321055053">+91 9321055053</a>
+            </div>
+            <div class="contact-item">
+                <div class="icon">📍</div>
+                <h4>Location</h4>
+                <p>Mumbai, Maharashtra</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Adarshraj Shah. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                    // Close mobile menu if open
+                    document.getElementById('nav-menu').classList.remove('active');
+                }
+            });
+        });
+
+        // Mobile menu toggle
+        function toggleMenu() {
+            document.getElementById('nav-menu').classList.toggle('active');
+        }
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', function(event) {
+            const nav = document.querySelector('nav');
+            const menuToggle = document.querySelector('.menu-toggle');
+            const navMenu = document.getElementById('nav-menu');
+            
+            if (!nav.contains(event.target)) {
+                navMenu.classList.remove('active');
+            }
+        });
+
+        // Add scroll effect to navigation
+        window.addEventListener('scroll', function() {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 50) {
+                nav.style.boxShadow = '0 4px 20px rgba(0,0,0,0.2)';
+            } else {
+                nav.style.boxShadow = '0 2px 10px rgba(0,0,0,0.1)';
+            }
+        });
+    </script>
+</body>
+</html>
